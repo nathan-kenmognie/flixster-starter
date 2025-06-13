@@ -1,17 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import MovieList from "../movie-list/movie-list";
-
 import "./movie-card.css";
 
 
 
-let MovieCard = () =>{
+
+
+let MovieCard = ({movie}) =>{
     return (
         <main className="movie-card">
-            <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" alt="Movie Poster" />
-            <h2>Movie Title</h2>
-            <h3>Rating</h3>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+            <h3>{movie.title}</h3>
+
+            <p>Rating: {movie.vote_average}</p>
         </main>
     );
 }

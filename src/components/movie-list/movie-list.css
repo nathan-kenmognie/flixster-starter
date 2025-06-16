@@ -6,10 +6,31 @@
     flex-direction: row;
 }
 
+select {
+    width: 200px;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: black;
+    margin-right: 10px;
+}
+
+.search-btn{
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: black;
+}
+
 .search-bar {
     width: 100%;
     max-width: 600px;
-    margin: 20px auto;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -32,4 +53,25 @@ div {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 20px;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-size: 0.9em;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    background-color: #1a1a1a;
+    width: 100%;
 }

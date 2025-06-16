@@ -8,6 +8,7 @@ import LoadMoreBtn from './components/load-more-btn/load-more-btn.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <title>Flixster</title>
 
     <MovieList />
 

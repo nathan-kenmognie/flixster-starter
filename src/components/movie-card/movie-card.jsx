@@ -4,7 +4,7 @@ import fallBackImg from "../../assets/default-movie-img.jpg";
 let MovieCard = ({ movie, onClick, addFavorite, isFavorite, addWatched, isWatched }) => {
   const handleEmptyPoster = () => {
     return movie.poster_path
-      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
       : fallBackImg;
   };
 

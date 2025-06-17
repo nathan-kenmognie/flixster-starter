@@ -215,6 +215,7 @@ let MovieList = () => {
     return(
     <div>
         <header>
+            <h1>Flixster</h1>
         {searchBar}
 
 
@@ -241,7 +242,7 @@ let MovieList = () => {
 
         <LoadMoreBtn loadMore={loadMoreFunc}/>
 
-        <footer></footer>
+        <footer>@2025 FLixster. All rights reserved</footer>
 
 
     </div>

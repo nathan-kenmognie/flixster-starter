@@ -53,6 +53,7 @@ body{
   margin: 0;
   padding: 0;
   background-color: #242424;
+  background-image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDUzMHp6czNweW1lMXJpNXgzcGJraHI0MTh0NThiajgycmd6c2t4OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7buijTqhjxjbEqjK/giphy.gif";
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,6 +81,9 @@ body{
   background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
+  outline: white solid 1px;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .sidenav a {

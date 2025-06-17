@@ -189,7 +189,7 @@ let MovieList = () => {
         <div className="search-bar">
             <input type="text" value={inputValue} onChange={(e)=>{setInputValue(e.target.value)}} placeholder="Search" />
             <button id="search-btn" onClick={handleSearchClick}>Search</button>
-            <button id="now-playing-btn" onClick={nowPlaying}>Now Playing</button>
+            <button id="now-playing-btn" onClick={nowPlaying}>Clear</button>
         </div>
     
     const sortSelection = 
@@ -207,7 +207,8 @@ let MovieList = () => {
 
 
     const sideBar  = 
-            <div class="sidenav">
+            <div className="sidenav">
+                <a onClick={nowPlaying}>Home</a>
                 <a onClick={()=>{setMovies(favorites)}}>Favorites</a>
                 <a onClick={()=>{setMovies(watched)}}>Watched</a>
             </div>

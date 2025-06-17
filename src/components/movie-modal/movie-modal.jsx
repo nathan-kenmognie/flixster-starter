@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import fallBackImg from "../../assets/default-movie-img.jpg"
 import "./movie-modal.css"
 
-let MovieModal = ({show, onClose, movie, addFavorite, isFavorite}) =>{
+let MovieModal = ({show, onClose, movie}) =>{
     if (!show || !movie) return null;
     const [videoKey, setVideoKey] = useState(null)
 
@@ -32,9 +33,17 @@ let MovieModal = ({show, onClose, movie, addFavorite, isFavorite}) =>{
     }, [movie])
     
 
-    const handleLikeClick = (e) =>{
-        addFavorite(movie); 
-        e.stopPropagation()
+
+
+    const handleEmptyPoster = (movie) =>{
+
+        if (!movie.poster_path){
+            return fallBackImg
+
+        }else{
+            return `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        }
+
     }
 
 
@@ -52,7 +61,7 @@ let MovieModal = ({show, onClose, movie, addFavorite, isFavorite}) =>{
                     <button onClick={onClose}>X</button>
                 </div>
                 <div className="modal-body">
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+                    <img src={handleEmptyPoster(movie)}/>
                     <h1>{movie.title}</h1>
                     
                     <h3>Rating: {movie.vote_average}</h3>
@@ -75,9 +84,7 @@ let MovieModal = ({show, onClose, movie, addFavorite, isFavorite}) =>{
                     }
 
                 </div>
-                <button onClick={handleLikeClick}>
-                    {isFavorite ? "❤️" : "🤍" }
-                </button>
+
             </div>
 
         </div>

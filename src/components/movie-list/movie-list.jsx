@@ -18,6 +18,8 @@ let MovieList = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [sortParameter, setSortParameter] = useState("")
     const [favorites, setFavorites] = useState([])
+    const [watched, setWatched] = useState([])
+
 
 
 
@@ -33,7 +35,7 @@ let MovieList = () => {
         if (searchQuery) {
             endpoint = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}&include_adult=false&language=en-US&page=${page}`;
         } else if (sortParameter) {
-            endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&include_adult=false&include_video=false&language=en-US&sort_by=${sortParameter}&page=${page}`;
+            endpoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${sortParameter}`;
         } else {
             endpoint = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&include_adult=false&language=en-US&page=${page}`;
         }
@@ -41,11 +43,15 @@ let MovieList = () => {
         const response = await fetch(endpoint);
         const data = await response.json();
 
-        const filteredData = data.results.filter(
-            (movie) => movie.title && movie.overview && movie.poster_path && movie.release_date && movie.vote_average
-        );
 
-        setMovies(prev => (page === 1 ? filteredData : [...prev, ...filteredData]));
+
+
+
+        //const filteredData = data.results.filter(
+        //    (movie) => movie.overview && movie.poster_path && movie.vote_average
+        //);
+
+        setMovies(prev => (page === 1 ? data.results : [...prev, ...data.results]));
         } catch (err) {
         setError("Failed to fetch movies.");
         } finally {
@@ -62,12 +68,6 @@ let MovieList = () => {
         setSearchQuery(inputValue);
         setSortParameter("")
         setPage(1)
-        const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}&include_adult=false&language=en-US&page=${page}`
-        const searchResponse = await fetch(searchUrl);
-        const searchData = await searchResponse.json();
-        const filteredData = searchData.results.filter(movie =>
-            movie.title && movie.overview && movie.poster_path);
-        setMovies(filteredData);
     };
 
     const nowPlaying = async() =>{
@@ -78,7 +78,7 @@ let MovieList = () => {
 
     }
 
-    const handleMovieClick = async (id,name) =>{
+    const handleMovieClick = async (id) =>{
         setShowModal(true);
 
         try{
@@ -107,9 +107,33 @@ let MovieList = () => {
             setFavorites([...favorites, movie])
             console.log(favorites.length)
             console.log(favorites)
+        }else{
+            const newList = favorites.filter((item)=> item.id !== movie.id);
+            setFavorites(newList);
+
+            
         }
 
     }
+
+    const addWatched = (movie) =>{
+    if (!watched.includes(movie)){
+        setWatched([...watched, movie])
+        console.log(watched.length)
+        console.log(watched)
+    }else{
+        const newList = watched.filter((item)=> item.id !== movie.id);
+        setWatched(newList);
+
+        
+    }
+
+    }
+
+    const isWatched = (movie) =>{
+        return watched.includes(movie)
+    }
+
 
     const isFavorite = (movie) => {
         return favorites.includes(movie)
@@ -137,10 +161,12 @@ let MovieList = () => {
             newSortParam = "vote_average.desc";
         }
 
-        
-        setPage(1); 
+        console.log(newSortParam)
+
         setSearchQuery("");
         setSortParameter(newSortParam);
+        setPage(1); 
+
     };
 
 
@@ -194,11 +220,15 @@ let MovieList = () => {
                 <MovieCard
                     key={idx}
                     movie={item}
-                    onClick={()=>handleMovieClick(item.id, item.title)}
+                    onClick={()=>handleMovieClick(item.id)}
+                    isFavorite ={isFavorite}
+                    addFavorite={addFavorites}
+                    isWatched={isWatched}
+                    addWatched={addWatched}
                 />
         ))}
         </div>
-        <MovieModal show={showModal} onClose={handleClose} isFavorite ={isFavorite(selectedMovie)} addFavorite={addFavorites} movie={selectedMovie}/>
+        <MovieModal show={showModal} onClose={handleClose}  movie={selectedMovie}/>
 
         <LoadMoreBtn loadMore={loadMoreFunc}/>
 

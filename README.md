@@ -102,28 +102,36 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+<div>
+    <a href="https://www.loom.com/share/aa9754e8c51b445986e01abdf4eaffeb">
+      <p>Loom Message - 17 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/aa9754e8c51b445986e01abdf4eaffeb">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/aa9754e8c51b445986e01abdf4eaffeb-d94018566cc61860-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, most lab topics were helpful. Especially useState, useEffect, and API fetching. However, managing toggled states like favorites and watched lists, and integrating extra movie data like runtime or trailers from TMDb, felt underexplained. I had to explore additional resources to fully implement those features.
+
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+With more time, I would have added persistent storage for favorites, improved the user interface, and integrated genre based filtering. I also wanted to improve responsiveness and loading feedback. Better event handling, especially for toggling states, would have enhanced the overall experience and reduced inconsistencies in interaction timing.
+
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The modal worked well, and users could easily mark favorites. However, state updates sometimes delayed or didn’t reflect properly. A classmate used a sidebar with dynamic filters that looked clean and organized. I’d love to try that approach in my next project to improve both layout and functionality.
+
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- [W3Schools](https://www.w3schools.com/howto/howto_js_sidenav.asp)
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to Keith and Lucia for helping me get the sorting and serach features working as they should.

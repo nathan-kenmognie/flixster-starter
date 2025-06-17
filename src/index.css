@@ -114,3 +114,41 @@ body{
   padding: 20px;
   width: calc(100% - 160px);
 }
+
+/* Hide sidebar and remove margin on small screens */
+@media screen and (max-width: 600px) {
+  .sidenav {
+    width: 0;
+    padding-top: 0;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.3s;
+    background-color: #111;
+  }
+
+  .sidenav a {
+    font-size: 20px;
+    padding: 8px 0 8px 16px;
+  }
+
+  .sidenav.open {
+    width: 200px; /* sidebar width when opened */
+    padding-top: 20px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    transition: margin-left 0.3s;
+  }
+
+  /* Overlay effect when sidebar is open */
+  body.sidebar-open {
+    overflow: hidden; /* prevent background scroll */
+  }
+}
+
+
+

@@ -174,6 +174,8 @@ let MovieList = () => {
 
 
 
+
+
     if (error) {
         return <p>Error: {error}</p>;
     }
@@ -202,20 +204,26 @@ let MovieList = () => {
             </select>
         </div>
 
-    const favoritesBtn = <button className="favorites-button" onClick={(e)=>{favoritesPage(); e.stopPropagation()}}> Favorites</button>
 
+
+    const sideBar  = 
+            <div class="sidenav">
+                <a onClick={()=>{setMovies(favorites)}}>Favorites</a>
+                <a onClick={()=>{setMovies(watched)}}>Watched</a>
+            </div>
     return(
     <div>
         <header>
         {searchBar}
 
-        {favoritesBtn}
 
 
         {sortSelection}
 
         </header>
+        {sideBar}
         <div className="movie-list">
+            
             {movies.map((item,idx)=>(
                 <MovieCard
                     key={idx}

@@ -10,8 +10,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <title>Flixster</title>
 
-    <MovieList />
-
+    <div className="app-container">
+      <div className="main-content">
+        <MovieList />
+      </div>
+    </div>
     
   </StrictMode>
 )
